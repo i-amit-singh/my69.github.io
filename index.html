@@ -2,136 +2,128 @@
 <html>
 
 <head>
-    <title>69</title>
+    <title>Circle</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
         body {
             display: grid;
             height: 100vh;
-            background-color: #6592CF;
+            background-color: #1A4341;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
 
         .big {
-            height: 200px;
-            width: 200px;
-            margin: 4rem;
+            height: 350px;
+            width: 350px;
             border-radius: 50%;
-            display: inline-block;
-            background-color: #6592CF;
+            background-color: #1A4341;
             position: relative;
-            border: 100px solid #245D83;
-            animation: down 4s linear infinite;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border: 0px;
+            animation: rotate 3s alternate-reverse infinite;
             animation-timing-function: ease-in-out;
         }
 
-        .big:first-of-type {
-            animation: up 4s linear infinite;
-        }
-        @keyframes up {
-            from{
-                transform: rotate(40deg) translateX(4rem);
+        @keyframes rotate {
+            0% {
+                transform: scale(100) rotate(90deg)
             }
-            50%{
-                transform: rotate(40deg) translateX(5rem);
+
+            50% {
+                transform: scale(0.8) translateX(0vw) translateY(0rem)
             }
-            to{
-                transform: rotate(40deg) translateX(4rem);
+
+            75% {
+                transform: scale(1) translateY(-2rem)
             }
-        }
-        @keyframes down {
-            from{
-                transform: rotate(220deg) translateX(4rem);
+
+            100% {
+                transform: scale(0) translateX(0vw) translateY(-50rem) rotate(90deg)
             }
-            50%{
-                transform: rotate(220deg) translateX(5rem);
-            }
-            to{
-                transform: rotate(220deg) translateX(4rem);
-            }
-        }
-        .container {
-            position: relative;
-            transform: translateY(-2rem);
         }
 
-        .container::before {
-            content: "";
-            height: 100px;
-            width: 100px;
-            transform: perspective(1em) rotateX(30deg) scale(1, 0.3);
-            filter: blur(2em);
-            bottom: -5rem;
-            animation: upShadow 4s linear infinite;
-            animation-timing-function: ease-in-out;
-            left: 17rem;
-            z-index: 10;
-            position: absolute;
-        }
-        @keyframes upShadow {
-            from{
-                background-color: rgba(0, 0, 0, 0.139);
-            }
-            50%{
-                background-color: rgba(0, 0, 0, 0.523);
-            }
-            to{
-                background-color: rgba(0, 0, 0, 0.139);
-            }
-        }
-        .container::after {
-            content: "";
-            height: 100px;
-            width: 100px;
-            transform: perspective(1em) rotateX(30deg) scale(1, 0.3);
-            filter: blur(2em);
-            bottom: -5rem;
-            background-color: rgb(0 0 0 / 37%);
-            left: 45rem;
-            z-index: 10;
-            position: absolute;
-            animation: downShadow 4s linear infinite;
-            animation-timing-function: ease-in-out;
-        }
-        @keyframes downShadow {
-            from{
-                background-color: rgba(0, 0, 0, 0.523);
-            }
-            50%{
-                background-color: rgba(0, 0, 0, 0.139);
-            }
-            to{
-                background-color: rgba(0, 0, 0, 0.523);
-            }
-        }
         .big::before {
             content: "";
             position: absolute;
-            top: -100px;
-            left: -100px;
-            height: 200px;
-            width: 200px;
-            background-color: #6592CF;
+            top: 25px;
+            left: 25px;
+            height: 300px;
+            width: 300px;
+            border-radius: 50%;
+            background-color: #998235;
             z-index: 0;
         }
-
-        .big::after {
-            content: "";
-            position: absolute;
-            top: -100px;
-            left: -100px;
-            height: 200px;
-            width: 100px;
-            background-color: #245D83;
+        
+        .rec {
+            height: 30px;
+            width: 400px;
+            background-color: #F3AC3C;
+            z-index: 1;
+            box-shadow: 0 0 0 30px #1A4341,
+                0 0 0 60px #F3AC3C,
+                0 0 0 90px #1A4341;
+        }
+        h1{
+            position: fixed;
+            font-family: 'Rubik Moonrocks', cursive;
+            top: calc(100vh-150px);
+            color: #1A4341;
+            z-index: 100;
+            margin: 0px;
+            
+        }
+        #left{
+           animation: left 6s alternate-reverse infinite;
+            animation-timing-function: ease-in-out;
+            
+        }
+        @keyframes left {
+            0%{
+                left:0px;
+                transform: scale(0);
+            }
+            50%{
+                left: 30vw; 
+                transform: scale(20);
+            }
+            100%{
+                left:0px;
+                transform: scale(0);
+            }
+        }
+        #right{
+            right: 400px;
+            animation: right 6s alternate-reverse infinite;
+            animation-timing-function: ease-in-out;
+        }
+        @keyframes right {
+            0%{
+                right: 0px;
+                transform: scale(0);
+            }
+            50%{
+                right: 30vw;
+                transform: scale(20);
+            }
+            100%{
+                right: 0px;
+                transform: scale(0);
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="big"></div>
-        <div class="big"></div>
+    <div class="big">
+        <div class="rec"></div>
     </div>
+    <h1 id="left">6</h1>
+    <h1 id="right">9</h1>
 </body>
 
 </html>
